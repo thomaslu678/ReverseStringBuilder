@@ -4,7 +4,7 @@ import java.util.*;
 public class ReverseTester {
 
     public String reverse(String testStringInput) {
-        // This is your test string
+        // Creates a test string
         StringBuilder testString = new StringBuilder(testStringInput);
 
         // This is the reversed version of your test string
@@ -16,23 +16,40 @@ public class ReverseTester {
 
     public static void main(String[] args) {
 
-        // Create a way to take in user input
-        Scanner sc= new Scanner(System.in); //System.in is a standard input stream
+        // Creates a way to take in user input
+        Scanner sc= new Scanner(System.in);
+
+        // Asks for user to input a string
         System.out.println("Enter a string: ");
-        String userInputString= sc.nextLine();              //reads string
+
+        // Reads the string, creating a userInputString object
+        String userInputString = sc.nextLine();
 
 
-        // Input validation
-        if (userInputString.isEmpty()) {
-            System.out.println("Please try again.");
+        // Input validation to test if String is empty
+        boolean invalidInput = true;
+        while (invalidInput) {
+
+            // If the user input string is empty or blank, prompt to enter a valid string
+            if (userInputString.isEmpty() || userInputString.isBlank()) {
+                System.out.println("Please enter a non-empty string: ");
+                userInputString = sc.nextLine();
+            }
+            // If the string is valid (i.e. not empty or blank), end the validation loop and move on
+            else{
+                invalidInput = false;
+            }
         }
 
+        // Print the user's string
+        System.out.println("You have entered: " + userInputString);
 
-
-        System.out.println("You have entered: "+userInputString);
-
+        // Create the reverse tester
         ReverseTester myReverseTester = new ReverseTester();
+
+        // Print the reverse of the user's string
         System.out.println("This is the reversed string: " + myReverseTester.reverse(userInputString));
+
     }
 
 

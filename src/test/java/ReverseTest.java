@@ -12,8 +12,8 @@ public class ReverseTest {
 
         ReverseTester myReverseTester = new ReverseTester();
 
-        // Expected output: 321
-        assertEquals("abc", myReverseTester.reverse("cba"));
+        // Test the reverse method
+        assertEquals("samohT", myReverseTester.reverse("Thomas"));
 
     }
 
